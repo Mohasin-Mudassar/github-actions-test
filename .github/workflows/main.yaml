@@ -1,0 +1,19 @@
+name: My GitHub Actions Workflow
+
+on:
+  push:
+    branches:
+      - github-actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Print a message
+        run: |
+          echo "This is a print statement in GitHub Actions."
+          printf "This is another print statement using printf.\n"
