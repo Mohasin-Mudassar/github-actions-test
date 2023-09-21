@@ -22,10 +22,7 @@ jobs:
         run: |
           node --version
 
-      - name: Make Bash script executable
-        run: |
-          chmod +x test.sh
-
       - name: Run Bash script
         run: |
+          chmod +x ./test.sh
           ./test.sh
