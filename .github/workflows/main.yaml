@@ -1,24 +1,13 @@
 name: My GitHub Actions Workflow
 
 on: 
-  # workflow_dispatch:
-  #   inputs:
-  #     logLevel:
-  #       description: 'Log level'
-  #       required: true
-  #       default: 'warning'
-  #       type: choice
-  #       options:
-  #       - info
-  #       - warning
-  #       - debug
   push:
     branches:
       - github-actions
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
@@ -37,29 +26,3 @@ jobs:
         run: |
           chmod +x ./scripts/test.sh
           ./scripts/test.sh
-
-
-
-name: GitHub Actions Workflow
-
-on:
-  push:
-    branches:
-      - github-actions-testing
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.17.0
-
-      - name: Print Node.js version
-        run: |
-          node --version
